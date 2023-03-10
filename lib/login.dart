@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
+import 'main.dart';
+
 class login extends StatefulWidget {
   @override
   _loginState createState() => _loginState();
@@ -9,30 +11,9 @@ class login extends StatefulWidget {
 class _loginState extends State<login> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
-  bool _isValid = false;
 
-  Future signIn() async {
-    await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: _emailController.text.trim(),
-        password: _passwordController.text.trim()
-    );
-    if(_emailController.text!='')
-    {
-      if(_passwordController.text!=''){
-        Navigator.pushNamed(context, '/HomePage');
-      }
-    }
-  }
-
-  @override
-
-  void dispose(){
-    _emailController.dispose();
-    _passwordController.dispose();
-    super.dispose();
-  }
-
-
+  void main() =>
+      runApp(MyApp());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -116,8 +97,6 @@ class _loginState extends State<login> {
 
                           );
                           Navigator.pushNamed(context, '/nav');
-                          String email = _emailController.text;
-                          String password = _passwordController.text;
                         },
                         child: Text('LOGIN',
                           style: TextStyle(

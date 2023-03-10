@@ -1,5 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+
+import 'main.dart';
 class signup extends StatefulWidget {
   const signup({Key? key}) : super(key: key);
 
@@ -13,29 +15,8 @@ class _signupState extends State<signup> {
   final _repasswordController = TextEditingController();
   TextEditingController _confirmPasswordController = TextEditingController();
   @override
-  bool passconfirmed(){
-    if(_passwordController.text.trim() == _repasswordController.text.trim()){
-      return true;
-    }
-    else{
-      return false;
-    }
-  }
-   Future signIn() async {
-     if (passconfirmed()) {
-       await FirebaseAuth.instance.createUserWithEmailAndPassword(
-           email: _emailController.text.trim(),
-           password: _passwordController.text.trim()
-       );
-     }
-   }
-   @override
-   void dispose(){
-     _emailController.dispose();
-     _passwordController.dispose();
-     super.dispose();
-   }
-   @override
+  void main() =>
+      runApp(MyApp());
    Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
