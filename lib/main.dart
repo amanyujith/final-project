@@ -12,7 +12,6 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-
 import 'home.dart';
 
 void main() =>
@@ -42,8 +41,6 @@ class MyApp extends StatelessWidget {
         '/forgotpassword':(context) =>forgotpassword(),
         '/password':(context) =>password(),
         '/nav':(context) =>nav(),
-
-
       },
     );
   }
